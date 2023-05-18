@@ -22,8 +22,8 @@ public class IngredientMapper
 		ingredient.setTaux_fruit(Double.parseDouble(form.getTauxFruit())/100);
 		ingredient.setPrix_au_gramme(Double.parseDouble(form.getPrixKG())/1000);
 		switch (form.getType()){
-			case FRUIT100, FRUIT_SUCRE -> ingredient.setCoefficient_pouvoir_sucrant(1.25);
-			case CHOCOLAT, AUTRE_AROME -> ingredient.setCoefficient_pouvoir_sucrant(1);
+			case FRUIT100, FRUIT_SUCRE, FRUIT_ACIDE -> ingredient.setCoefficient_pouvoir_sucrant(1.25);
+			case CHOCOLAT, AUTRE_AROME, ALCOOL, FRUIT_SEC -> ingredient.setCoefficient_pouvoir_sucrant(1);
 		}
 		return ingredient;
 	}

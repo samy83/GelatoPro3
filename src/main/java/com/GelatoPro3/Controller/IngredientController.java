@@ -96,6 +96,27 @@ public class IngredientController
 		return ingredients;
 	}
 
+	@GetMapping("/fruit-acide/all")
+	public Iterable<Ingredient> getAllFruitAcide()
+	{
+		final Iterable<Ingredient> ingredients = this.ingredientService.findAllByType(Type.FRUIT_ACIDE);
+		return ingredients;
+	}
+
+	@GetMapping("/fruit-sec/all")
+	public Iterable<Ingredient> getAllFruitSec()
+	{
+		final Iterable<Ingredient> ingredients = this.ingredientService.findAllByType(Type.FRUIT_SEC);
+		return ingredients;
+	}
+
+	@GetMapping("/alcool/all")
+	public Iterable<Ingredient> getAllAlcool()
+	{
+		final Iterable<Ingredient> ingredients = this.ingredientService.findAllByType(Type.ALCOOL);
+		return ingredients;
+	}
+
 	@GetMapping("/stabilisant/all")
 	public Iterable<Ingredient> getAllStabilisant()
 	{
@@ -103,6 +124,12 @@ public class IngredientController
 		return ingredients;
 	}
 
+	@GetMapping("/emulsifiant/all")
+	public Iterable<Ingredient> getAllEmulsifiant()
+	{
+		final Iterable<Ingredient> ingredients = this.ingredientService.findAllByType(Type.EMULSIFIANT);
+		return ingredients;
+	}
 	@GetMapping("/{nom}")
 	public Optional<Ingredient> getByNom(@PathVariable String nom)
 	{
