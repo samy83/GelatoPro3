@@ -11,6 +11,7 @@ import com.GelatoPro3.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
 
 
 @CrossOrigin
@@ -32,11 +33,20 @@ public class UserController
 		this.userService.createUser(userMapper.userFormToUser(formUser));
 	}
 
+	@GetMapping(path="/{id}")
+	public void getUser(@PathVariable String email){
+		this.userService.findUserByEMail(email);
+	}
+
+	@GetMapping(path="/login/{email}/{pwd}")
+	public boolean login(@PathVariable String email, @PathVariable String pwd){
+		return this.userService.login(email, pwd);
+	}
 
 	@GetMapping("/mail")
 	public void sendMail()
 	{
-		//mailService.sendMail();
+		mailService.sendMail();
 		//MimeMessage m= new MimeMessage();
 	}
 }
