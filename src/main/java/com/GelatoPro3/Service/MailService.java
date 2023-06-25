@@ -11,42 +11,31 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 import java.util.Properties;
-
+import org.springframework.mail.javamail.JavaMailSender;
 @Service
 public class MailService
 {
+	JavaMailSender javaMailSender;
 	public void sendMail(){
 
 		System.out.println("sendMail()....");
-		// Recipient's email ID needs to be mentioned.
+
 		String to = "samy.geoffroy@hotmail.fr";
+		String from = "joshperkins83000@gmail.com";
+		String fromPwd = "dxbjtqraxagycfgb";
 
 		Properties properties = new Properties();
 		properties.put("mail.smtp.auth", true);
 		properties.put("mail.smtp.starttls.enable", "true");
-		properties.put("mail.smtp.host", "smtp.protonmail.ch");
+		properties.put("mail.smtp.host", "smtp.gmail.com");
 		properties.put("mail.smtp.port", "587");
-		properties.put("mail.smtp.ssl.trust", "smtp.protonmail.ch");
-		properties.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
-
-		// Sender's email ID needs to be mentioned
-		String from = "samy.geoffroy@proton.me";
-		// Assuming you are sending email from localhost
-		String host = "localhost";
-		// Get system properties
-		//Properties properties = System.getProperties();
-		// Setup mail server
-		//properties.setProperty("mail.smtp.host", host);
-		// Get the default Session object.
 
 		Session session = Session.getInstance(properties, new Authenticator() {
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("samy.geoffroy@proton.me", "vvv14091992");
+				return new PasswordAuthentication(from, fromPwd);
 			}
 		});
-
-		//session = Session.getDefaultInstance(properties);
 
 		try{
 			// Create a default MimeMessage object.

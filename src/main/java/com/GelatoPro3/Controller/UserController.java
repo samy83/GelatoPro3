@@ -1,17 +1,12 @@
 package com.GelatoPro3.Controller;
 
-import com.GelatoPro3.Entity.Ingredient;
-import com.GelatoPro3.Enum.Type;
-import com.GelatoPro3.Form.IngredientForm;
 import com.GelatoPro3.Form.UserForm;
 import com.GelatoPro3.Mapper.UserMapper;
-import com.GelatoPro3.Service.IngredientService;
 import com.GelatoPro3.Service.MailService;
 import com.GelatoPro3.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.UUID;
 
 
 @CrossOrigin
@@ -47,6 +42,5 @@ public class UserController
 	public void sendMail()
 	{
 		mailService.sendMail();
-		//MimeMessage m= new MimeMessage();
 	}
 }

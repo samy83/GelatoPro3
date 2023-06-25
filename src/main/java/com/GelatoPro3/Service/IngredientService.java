@@ -28,8 +28,8 @@ public class IngredientService
 		return this.ingredientRepository.findAllByType(type);
 	}
 
-	public void createIngredient(Ingredient ingredient)
+	public Ingredient createIngredient(Ingredient ingredient)
 	{
-		this.ingredientRepository.save(ingredient);
+		return this.ingredientRepository.save(ingredient);
 	}
 }

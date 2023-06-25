@@ -23,7 +23,6 @@ public class IngredientController
 {
 	@Autowired
 	private IngredientService ingredientService;
-
 	@Autowired
 	private TypeGlaceService typeGlaceService;
 	@Autowired
@@ -138,8 +137,8 @@ public class IngredientController
 	}
 
 	@PostMapping(path= "/ingredient", consumes = {"multipart/form-data"})
-	public void createIngredient(@ModelAttribute IngredientForm formIngredient){
-		this.ingredientService.createIngredient(ingredientMapper.ingredientFormToIngredient(formIngredient));
+	public Ingredient createIngredient(@ModelAttribute IngredientForm formIngredient){
+		return this.ingredientService.createIngredient(ingredientMapper.ingredientFormToIngredient(formIngredient));
 	}
 
 }
