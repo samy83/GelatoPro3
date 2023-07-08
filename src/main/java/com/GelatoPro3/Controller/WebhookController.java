@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class WebhookController {
 
     // Replace with your webhook signing secret
-    public static final String WEBHOOK_SECRET = "we_1NRayxBagzY3CioixBaEWlkt";
+    public static final String WEBHOOK_SECRET = "whsec_gZ5N7eBMnAzTXrifFPocnZ7EqoE9WUAr";
 
     @Autowired
     MailService mailService;
