@@ -38,7 +38,12 @@ public class WebhookController {
             String userId = jsonObj.getString("id");
             System.out.println("userId: " + userId);
 
-            String customer_email = jsonObj.getJSONObject("data").getJSONObject("metadata").getString("customer_email");
+            String customer_email = jsonObj
+                    .getJSONObject("data")
+                    .getJSONObject("object")
+                    .getJSONObject("metadata")
+                    .getString("customer_email");
+
             System.out.println("customer: " + customer_email);
 
             // Handle the event
