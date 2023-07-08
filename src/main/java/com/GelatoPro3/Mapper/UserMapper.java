@@ -12,13 +12,14 @@ public class UserMapper
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 
-	public User userFormToUser(UserForm form){
+	public User userFormToUser(UserForm form, String userEmail){
 		User newUser = new User();
 		newUser.setPrenom(form.getPrenom());
 		newUser.setNom(form.getNom());
 		newUser.setPwd(bCryptPasswordEncoder.encode(form.getPwd()));
 		newUser.setEmail(form.getEmail());
 		newUser.setPays(form.getPays());
+		newUser.setEmail(userEmail);
 		//newUser.setId(123L);
 		return newUser;
 	}

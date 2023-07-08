@@ -24,8 +24,8 @@ public class UserController
 	private MailService mailService;
 
 	@PostMapping(path= "/", consumes = {"multipart/form-data"})
-	public void createUser(@ModelAttribute UserForm formUser){
-		this.userService.createUser(userMapper.userFormToUser(formUser));
+	public void createUser(@ModelAttribute UserForm formUser, @PathVariable String userEmail){
+		this.userService.createUser(userMapper.userFormToUser(formUser, userEmail));
 	}
 
 	@GetMapping(path="/{id}")

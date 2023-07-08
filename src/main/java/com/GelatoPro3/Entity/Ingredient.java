@@ -38,9 +38,6 @@ public class Ingredient
 	@Column(name = "prix_au_gramme", nullable = false)
 	private double prix_au_gramme;
 
-	@Column(name = "fournisseur", nullable = true)
-	private String fournisseur;
-
 	@Column(name = "gras", nullable = false)
 	private double gras;
 
@@ -49,6 +46,12 @@ public class Ingredient
 
 	@Column(name = "taux_fruit", nullable = true)
 	private double taux_fruit;
+
+	@Column(name = "fournisseur", nullable = true)
+	private String fournisseur;
+
+	@Column(name = "user_email", nullable = true)
+	private String userEmail;
 
 
 

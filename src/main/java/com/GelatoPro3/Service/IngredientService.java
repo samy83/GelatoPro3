@@ -14,8 +14,8 @@ public class IngredientService
 	@Autowired
 	IngredientRepository ingredientRepository;
 
-	public Optional<Ingredient> findByNom(String nom){
-		return this.ingredientRepository.findByNom(nom);
+	public Optional<Ingredient> findByNom(String nom, String userEmail){
+		return this.ingredientRepository.findByNomAndUserEmail(nom, userEmail);
 	}
 
 	public Iterable<Ingredient> findAll()
@@ -23,9 +23,9 @@ public class IngredientService
 		return this.ingredientRepository.findAll();
 	}
 
-	public Iterable<Ingredient> findAllByType(Type type)
+	public Iterable<Ingredient> findAllByType(Type type, String userEmail)
 	{
-		return this.ingredientRepository.findAllByType(type);
+		return this.ingredientRepository.findAllByTypeAndUserEmail(type.toString(), userEmail);
 	}
 
 	public Ingredient createIngredient(Ingredient ingredient)

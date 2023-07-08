@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class IngredientMapper
 {
-	public Ingredient ingredientFormToIngredient(IngredientForm form){
+	public Ingredient ingredientFormToIngredient(IngredientForm form, String userEmail){
 		Ingredient ingredient = new Ingredient();
 
 		int range = 10000 - 100 + 1;
@@ -25,6 +25,7 @@ public class IngredientMapper
 			case FRUIT100, FRUIT_SUCRE, FRUIT_ACIDE -> ingredient.setCoefficient_pouvoir_sucrant(1.25);
 			case CHOCOLAT, AUTRE_AROME, ALCOOL, FRUIT_SEC -> ingredient.setCoefficient_pouvoir_sucrant(1);
 		}
+		ingredient.setUserEmail(userEmail);
 		return ingredient;
 	}
 }
