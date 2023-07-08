@@ -38,7 +38,11 @@ public class WebhookController {
             String userId = jsonObj.getString("id");
             System.out.println("userId: " + userId);
 
-            String metaString = jsonObj.getString("metadata");
+
+            String dataString= jsonObj.getString("data");
+            JSONObject dataObject = jsonObj.getJSONObject(dataString);
+
+            String metaString = dataObject.getString("metadata");
             System.out.println("meta: " + metaString);
 
             JSONObject metaObject = jsonObj.getJSONObject(metaString);
